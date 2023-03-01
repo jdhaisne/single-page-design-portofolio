@@ -1,0 +1,25 @@
+
+
+.icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: $white;
+    &-larr {
+        mask:url('/src/assets/images/icon-arrow-left.svg')
+    }
+    &-rarr {
+        mask:url('/src/assets/images/icon-arrow-right.svg')
+    }
+    &--small {
+        width: 25px;
+        height: 25px;
+      }
+      &--very-small {
+        width: 16px;
+        height: 16px;
+      }
+}
+
+.icon {
+    mask-size: cover;}

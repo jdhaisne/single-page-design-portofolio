@@ -1,0 +1,25 @@
+@use "src/assets/scss/_variables.scss" as *;
+
+@import "_reset.scss";
+@import "_font.scss";
+@import "_icon.scss";
+
+
+
+html {
+    font: $body;
+    min-height: 100vh;
+    height: 100%;
+    // background-color: $light-cream;
+   }
+   body {
+       background-color: $light-cream;
+       height: 100%;
+   }
+   #app {
+       min-height: 100%;
+   
+       display: flex;
+   flex-direction: column;
+   
+   }

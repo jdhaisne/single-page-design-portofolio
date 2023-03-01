@@ -6,7 +6,6 @@ const mq = useMq();
 </script>
 
 <template>
-  {{ mq }}
   <PHeader> </PHeader>
   <PSection>
     <template #title
@@ -16,7 +15,7 @@ const mq = useMq();
     one-stop shop for your design needs.
   </PSection>
 
-  <pCardWrapper>
+  <pCardWrapper isBig>
     <PCard
       imgSrc="/src/assets/images/pattern-graphic-design.svg"
       imgAlt="pattern graphic design"
@@ -80,6 +79,7 @@ const mq = useMq();
   <PSection
     imgSrc="/src/assets/images/image-amy.webp"
     buttonText="Free Consultation"
+    isBig
   >
     <template #title>
       <PTitle size="xs">
@@ -102,6 +102,7 @@ const mq = useMq();
     :slideWidth="270"
     :slideHeight="180"
     :gap="12"
+    isBig
   >
     <template #title><PTitle size="xs"> My Work</PTitle></template> </PSlideshow
   ><PSlideshow

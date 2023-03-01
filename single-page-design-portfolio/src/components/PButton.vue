@@ -1,7 +1,9 @@
 <template>
   <button class="button" :class="buttonClass">
     <span v-if="!isArrow" class="button__content">
-      <slot></slot>
+      <div class="button__content" :class="slotClass">
+        <slot></slot>
+      </div>
     </span>
     <span v-else class="icon icon--very-small" :class="iconClass"> </span>
   </button>
@@ -9,6 +11,7 @@
 
 <script setup>
 import { computed } from "vue";
+import { useMq } from "vue3-mq";
 
 const props = defineProps({
   variant: {
@@ -20,8 +23,17 @@ const props = defineProps({
   },
 });
 
+const mq = useMq();
+
 const buttonClass = computed(() => {
   const classArray = [`button--${props.variant}`];
+  if (mq.sm && !isArrow) classArray.push("button--mobile");
+  return classArray;
+});
+
+const slotClass = computed(() => {
+  const classArray = [];
+  if (mq.sm) classArray.push("button__content--mobile");
   return classArray;
 });
 const isArrow = computed(() => {
@@ -54,6 +66,9 @@ export default {};
   &__content {
     color: $white;
     font: $body;
+    &--mobile {
+      font: $body-mobile;
+    }
   }
   &--primary {
     height: 56px;
@@ -68,6 +83,10 @@ export default {};
     &:hover {
       background-color: $summer-yellow;
     }
+  }
+  &--mobile {
+    height: 44px;
+    width: 176px;
   }
 }
 </style>

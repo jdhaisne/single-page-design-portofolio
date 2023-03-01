@@ -1,12 +1,21 @@
 <template>
-  <div class="section" :class="{ 'section--black': isBlack }">
+  <div
+    class="section"
+    :class="{ 'section--black': isBlack, 'section--big': isBig }"
+  >
     <div class="section__img__wrapper" v-if="imgSrc">
       <img class="section__img" :src="imgSrc" :alt="imgAlt" />
     </div>
-    <div class="section__title" :class="{ 'section__title--black': isBlack }">
+    <div
+      class="section__title section__content"
+      :class="{ 'section__title--black': isBlack }"
+    >
       <slot name="title"></slot>
     </div>
-    <div class="section__body" :class="{ 'section__body--black': isBlack }">
+    <div
+      class="section__body section__content"
+      :class="{ 'section__body--black': isBlack }"
+    >
       <slot></slot>
     </div>
     <PButton class="section__button" variant="secondary" v-if="buttonText">{{
@@ -21,6 +30,7 @@ const props = defineProps({
   imgAlt: { type: String },
   buttonText: { type: String },
   isBlack: { type: Boolean },
+  isBig: { type: Boolean },
 });
 </script>
 
@@ -32,7 +42,6 @@ const props = defineProps({
   text-align: center;
   margin: auto 6%;
   border-radius: 10px;
-  padding: 49px 24px;
 
   &__body {
     color: $medium-brown;
@@ -48,8 +57,20 @@ const props = defineProps({
   &__title--black {
     color: $light-cream;
   }
+  &__content {
+    margin: 12px 0px;
+  }
+  &__img {
+    &__wrapper {
+      margin: 30px 0px;
+    }
+  }
   &--black {
     background-color: $black;
+    padding: 49px 24px;
+  }
+  &--big {
+    margin-bottom: 100px;
   }
 }
 </style>

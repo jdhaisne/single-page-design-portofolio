@@ -1,7 +1,11 @@
 <template>
   <div
     class="card__wrapper"
-    :class="{ 'card__wrapper--row': isRow, 'card__wrapper--wrap': isWrap }"
+    :class="{
+      'card__wrapper--row': isRow,
+      'card__wrapper--wrap': isWrap,
+      'card__wrapper--big': isBig,
+    }"
   >
     <slot></slot>
   </div>
@@ -11,6 +15,7 @@
 const props = defineProps({
   isRow: { type: Boolean },
   isWrap: { type: Boolean },
+  isBig: { type: Boolean },
 });
 </script>
 
@@ -26,6 +31,9 @@ const props = defineProps({
   }
   &--wrap {
     flex-wrap: wrap;
+  }
+  &--big {
+    margin-bottom: 100px;
   }
 }
 </style>

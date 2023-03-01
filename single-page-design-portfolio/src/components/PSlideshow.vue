@@ -1,5 +1,5 @@
 <template>
-  <div class="slideshow">
+  <div class="slideshow" :class="{ 'slideshow--big': isBig }">
     <slot name="title"></slot>
     <div
       class="slides"
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="slideshow__button__wrapper">
       <PButton variant="left" @click="leftArrowClick"></PButton>
       <PButton variant="right" @click="rightArrowClick"></PButton>
     </div>
@@ -51,6 +51,7 @@ const props = defineProps({
   slideWidth: { type: Number },
   slideHeight: { type: Number },
   gap: { type: Number },
+  isBig: { type: Boolean },
 });
 
 const prevIndex = computed(() => {
@@ -114,6 +115,14 @@ onUnmounted(() => {
 @use "src/assets/scss/_mixins.scss" as *;
 .slideshow {
   text-align: center;
+  &__button__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  &--big {
+    margin-bottom: 100px;
+  }
 }
 .slides {
   position: relative;

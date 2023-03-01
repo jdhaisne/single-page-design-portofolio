@@ -25,7 +25,7 @@ const mq = useMq();
     >
       Graphic Design
     </PCard>
-    <PCardWrapper isRow isWrap>
+    <PCardWrapper isRow isWrap isSmall>
       <PCard
         imgSrc="/src/assets/images/pattern-ui-ux.svg"
         imgAlt="pattern ui ux"
@@ -55,25 +55,26 @@ const mq = useMq();
         Illustrations
       </PCard>
     </PCardWrapper>
+    <PCardWrapper :isRow="mq.md">
+      <PCard
+        imgSrc="/src/assets/images/pattern-photography.svg"
+        imgAlt="pattern photography"
+        width="343px"
+        height="182px"
+        backgroundColor="#61C4B7"
+      >
+        Photography
+      </PCard>
 
-    <PCard
-      imgSrc="/src/assets/images/pattern-photography.svg"
-      imgAlt="pattern photography"
-      width="343px"
-      height="182px"
-      backgroundColor="#61C4B7"
-    >
-      Photography
-    </PCard>
-
-    <PCard
-      imgSrc="/src/assets/images/pattern-motion-graphics.svg"
-      imgAlt="pattern motion graphics"
-      width="343px"
-      height="158px"
-      backgroundColor="#552049"
-      >Motion Graphics
-    </PCard>
+      <PCard
+        imgSrc="/src/assets/images/pattern-motion-graphics.svg"
+        imgAlt="pattern motion graphics"
+        width="343px"
+        height="182px"
+        backgroundColor="#552049"
+        >Motion Graphics
+      </PCard>
+    </PCardWrapper>
   </pCardWrapper>
 
   <PSection

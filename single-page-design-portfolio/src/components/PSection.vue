@@ -6,21 +6,23 @@
     <div class="section__img__wrapper" v-if="imgSrc">
       <img class="section__img" :src="imgSrc" :alt="imgAlt" />
     </div>
-    <div
-      class="section__title section__content"
-      :class="{ 'section__title--black': isBlack }"
-    >
-      <slot name="title"></slot>
+    <div class="section__bottom">
+      <div
+        class="section__title section__content"
+        :class="{ 'section__title--black': isBlack }"
+      >
+        <slot name="title"></slot>
+      </div>
+      <div
+        class="section__body section__content"
+        :class="{ 'section__body--black': isBlack }"
+      >
+        <slot></slot>
+      </div>
+      <PButton class="section__button" variant="secondary" v-if="buttonText">{{
+        buttonText
+      }}</PButton>
     </div>
-    <div
-      class="section__body section__content"
-      :class="{ 'section__body--black': isBlack }"
-    >
-      <slot></slot>
-    </div>
-    <PButton class="section__button" variant="secondary" v-if="buttonText">{{
-      buttonText
-    }}</PButton>
   </div>
 </template>
 
@@ -59,6 +61,7 @@ const props = defineProps({
   }
   &__content {
     margin: 12px 0px;
+    max-width: 740px;
   }
   &__img {
     &__wrapper {
